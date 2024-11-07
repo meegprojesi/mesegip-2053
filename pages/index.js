@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -24,20 +25,21 @@ export default function Home() {
       <main className="max-w-7xl mx-auto px-4 py-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
-            { title: 'Akademik İzleme Formları', icon: '📝' },
-            { title: 'Mesleki Gelişim Formları', icon: '📚' },
-            { title: 'Staj Değerlendirme', icon: '💼' },
-            { title: 'Rehberlik Formları', icon: '👥' },
-            { title: 'Proje Takip Sistemi', icon: '⚙️' },
-            { title: '2053 Vizyon Analizi', icon: '🎯' }
+            { title: 'Akademik İzleme Formları', icon: '📝', link: '/akademik-izleme' },
+            { title: 'Mesleki Gelişim Formları', icon: '📚', link: '/mesleki-gelisim' },
+            { title: 'Staj Değerlendirme', icon: '💼', link: '/staj-degerlendirme' },
+            { title: 'Rehberlik Formları', icon: '👥', link: '/rehberlik' },
+            { title: 'Proje Takip Sistemi', icon: '⚙️', link: '/proje-takip' },
+            { title: '2053 Vizyon Analizi', icon: '🎯', link: '/vizyon-analizi' }
           ].map((item, index) => (
-            <button
+            <Link
               key={index}
+              href={item.link}
               className="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow text-center"
             >
               <div className="text-3xl mb-2">{item.icon}</div>
               <div className="font-medium">{item.title}</div>
-            </button>
+            </Link>
           ))}
         </div>
       </main>
